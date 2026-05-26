@@ -22,13 +22,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const a = 1;
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <nav className="flex gap-6 px-6 py-3 border-b border-zinc-200 dark:border-zinc-800 text-sm font-medium">
+          <a href="/" className="hover:underline">Home</a>
+          <a href="/about" className="hover:underline">About</a>
+          <a href="/projects" className="hover:underline">Projects</a>
+        </nav>
+        <main className="flex flex-col flex-1">{children}</main>
+      </body>
     </html>
   );
 }
