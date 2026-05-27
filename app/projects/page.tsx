@@ -1,4 +1,5 @@
 import { projects } from "lib/projects";
+import Link from 'next/link';
 
 export default function ProjectsPage() {
   return (
@@ -7,10 +8,10 @@ export default function ProjectsPage() {
       <ul className="flex flex-col gap-2">
         {projects.map((p) => (
           <li key={p.slug} className="text-zinc-700 dark:text-zinc-300">
-            <a href={`/projects/${p.slug}`}>
+            <Link href={`/projects/${p.slug}`}>
               <span className="font-medium">{p.name}</span>
               <span className="ml-2 text-sm">— {p.description}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
