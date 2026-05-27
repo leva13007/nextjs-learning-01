@@ -1,8 +1,4 @@
-const projects = [
-  { name: "next_silence_note", description: "Next.js learning knowledge base, streamed on YouTube" },
-  { name: "postgres_silence_note", description: "PostgreSQL learning knowledge base" },
-  { name: "nextjs_01", description: "First App Router mini-site — Exercise 01" },
-];
+import { projects } from "lib/projects";
 
 export default function ProjectsPage() {
   return (
@@ -10,8 +6,11 @@ export default function ProjectsPage() {
       <h1 className="text-3xl font-bold">My Projects</h1>
       <ul className="flex flex-col gap-2">
         {projects.map((p) => (
-          <li key={p.name} className="text-zinc-700 dark:text-zinc-300">
-            <span className="font-medium">{p.name}</span> — {p.description}
+          <li key={p.slug} className="text-zinc-700 dark:text-zinc-300">
+            <a href={`/projects/${p.slug}`}>
+              <span className="font-medium">{p.name}</span>
+              <span className="ml-2 text-sm">— {p.description}</span>
+            </a>
           </li>
         ))}
       </ul>
